@@ -1,6 +1,6 @@
-# VSCode Workbench Reset
+# Workbench Reset
 
-Instantly reset your Visual Studio Code layout to a clean, focused state with a single keyboard shortcut.
+Instantly reset your editor layout to a clean, focused state with a single keyboard shortcut.
 
 ## Shortcut
 

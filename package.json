@@ -1,14 +1,23 @@
 {
-  "name": "vscode-workbench-reset",
-  "displayName": "VSCode Workbench Reset",
-  "description": "Provide a single keyboard shortcut that instantly returns VS Code to a clean, focused coding layout.",
+  "name": "workbench-reset",
+  "displayName": "Workbench Reset",
+  "description": "Instantly reset your workbench layout back to a clean and focused state with a single shortcut.",
   "version": "1.0.4",
   "publisher": "kalon-robson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kalon-robson/vscode-workbench-reset"
+  },
+  "homepage": "https://github.com/kalon-robson/vscode-workbench-reset#readme",
+  "bugs": {
+    "url": "https://github.com/kalon-robson/vscode-workbench-reset/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Keymaps"
   ],
   "main": "./dist/index.js",
   "contributes": {
