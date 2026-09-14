@@ -1,21 +1,25 @@
 {
   "name": "vscode-workbench-reset",
-  "version": "0.0.1",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "dev": "tsx src/index.ts",
-    "build": "tsc",
-    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}"
+  "displayName": "VSCode Workbench Reset",
+  "description": "Provide a single keyboard shortcut that instantly returns VS Code to a clean, focused coding layout.",
+  "version": "1.0.0",
+  "publisher": "kalon-robson",
+  "engines": {
+    "vscode": "^1.85.0"
   },
-  "author": "Innovixx <info@innovixx.co.uk>",
+  "main": "./dist/index.js",
+  "scripts": {
+    "lint": "eslint src"
+  },
+  "author": "Kalon Robson",
   "license": "UNLICENSED",
   "devDependencies": {
     "@innovixx/eslint-config": "^3.0.12",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "8.64.0",
     "@typescript-eslint/parser": "8.64.0",
     "eslint": "9.39.4",
-    "tsx": "^4.23.1",
-    "typescript": "^6.0.3"
+    "typescript": "^5.7.0"
   }
 }
