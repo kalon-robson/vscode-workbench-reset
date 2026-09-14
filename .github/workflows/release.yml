@@ -1,0 +1,42 @@
+name: Build and Release Extension
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies and build
+        run: |
+          pnpm i
+          pnpm build
+          pnpm prune --prod
+
+      - name: Create zip package
+        run: |
+          zip -r extension.zip dist package.json pnpm-lock.yaml node_modules README.md
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: extension.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      zip_name: extension.zip
