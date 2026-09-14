@@ -11,4 +11,4 @@ services:
       - ~/.npmrc:/home/vscode/.npmrc:cached
       - ~/.gitconfig:/home/vscode/.gitconfig:cached
     command: sleep infinity
-    working_dir: /workspaces/ts-eslint-boilerplate
+    working_dir: /workspaces/vscode-workbench-reset

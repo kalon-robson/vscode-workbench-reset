@@ -1,5 +1,5 @@
 {
-	"name": "ts-eslint-boilerplate",
+	"name": "vscode-workbench-reset",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "server",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
