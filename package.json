@@ -7,20 +7,61 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "categories": [
+    "Other"
+  ],
   "main": "./dist/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscodeWorkbenchReset.reset",
+        "title": "Reset Layout",
+        "category": "Workbench Reset"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscodeWorkbenchReset.reset",
+        "key": "alt+`",
+        "mac": "alt+`"
+      }
+    ],
+    "configuration": {
+      "title": "VSCode Workbench Reset",
+      "properties": {
+        "vscodeWorkbenchReset.widthResetSteps": {
+          "type": "integer",
+          "default": 2,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Number of width adjustment steps to expand the Explorer sidebar from minimum to comfortable default width."
+        },
+        "vscodeWorkbenchReset.showNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to display a non-intrusive status bar notification when the workbench reset completes."
+        }
+      }
+    }
+  },
   "scripts": {
-    "lint": "eslint src",
-    "build": "tsc"
+    "vscode:prepublish": "pnpm run build",
+    "package": "vsce package",
+    "compile": "tsc",
+    "build": "tsc",
+    "lint": "eslint src"
   },
   "author": "Kalon Robson",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "@innovixx/eslint-config": "^3.0.12",
     "@types/node": "^22.0.0",
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "8.64.0",
     "@typescript-eslint/parser": "8.64.0",
+    "@vscode/vsce": "^3.9.2",
     "eslint": "9.39.4",
+    "tslib": "^2.8.1",
     "typescript": "^5.7.0"
   }
 }

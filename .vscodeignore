@@ -1,0 +1,11 @@
+.vscode/**
+.devcontainer/**
+.github/**
+src/**
+tsconfig.json
+eslint.config.mjs
+pnpm-lock.yaml
+pnpm-workspace.yaml
+**/*.map
+.gitignore
+.npmrc

@@ -28,17 +28,14 @@ jobs:
         run: |
           pnpm i
           pnpm build
-          pnpm prune --prod
 
-      - name: Create zip package
+      - name: Package VSIX
         run: |
-          zip -r extension.zip dist package.json pnpm-lock.yaml node_modules README.md
+          pnpm package --no-dependencies
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
         with:
-          files: extension.zip
+          files: "*.vsix"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    outputs:
-      zip_name: extension.zip
