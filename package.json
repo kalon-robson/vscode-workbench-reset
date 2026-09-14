@@ -2,7 +2,7 @@
   "name": "vscode-workbench-reset",
   "displayName": "VSCode Workbench Reset",
   "description": "Provide a single keyboard shortcut that instantly returns VS Code to a clean, focused coding layout.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "kalon-robson",
   "engines": {
     "vscode": "^1.85.0"
