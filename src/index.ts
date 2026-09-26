@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import * as vscode from 'vscode';
 
 const OUTPUT_CHANNEL_NAME = 'VSCode Workbench Reset';
@@ -16,6 +17,11 @@ async function resetLayout(out: vscode.OutputChannel): Promise<void> {
 	const config = vscode.workspace.getConfiguration('vscodeWorkbenchReset');
 	const steps = Math.max(0, Math.min(100, config.get<number>('widthResetSteps', 2)));
 	const notify = config.get<boolean>('showNotification', true);
+	const closeAllEditors = config.get<boolean>('closeAllEditors', true);
+
+	if (closeAllEditors) {
+		await runCommand('workbench.action.closeAllEditors', out);
+	}
 
 	await runCommand('workbench.action.closePanel', out);
 	await runCommand('workbench.action.closeAuxiliaryBar', out);
@@ -24,11 +30,11 @@ async function resetLayout(out: vscode.OutputChannel): Promise<void> {
 	await runCommand('workbench.action.resetViewSizes', out);
 
 	await runCommand('workbench.action.focusFirstEditorGroup', out);
-	for (let i = 0; i < 25; i++) {
+	for (let i = 0; i < 25; i += 1) {
 		if (!(await runCommand('workbench.action.increaseViewWidth', out))) break;
 	}
 
-	for (let i = 0; i < steps; i++) {
+	for (let i = 0; i < steps; i += 1) {
 		if (!(await runCommand('workbench.action.decreaseViewWidth', out))) break;
 	}
 
@@ -43,7 +49,7 @@ export function activate(context: vscode.ExtensionContext): void {
 	const out = vscode.window.createOutputChannel(OUTPUT_CHANNEL_NAME);
 	context.subscriptions.push(out);
 	context.subscriptions.push(
-		vscode.commands.registerCommand('vscodeWorkbenchReset.reset', () => resetLayout(out))
+		vscode.commands.registerCommand('vscodeWorkbenchReset.reset', () => resetLayout(out)),
 	);
 }
 

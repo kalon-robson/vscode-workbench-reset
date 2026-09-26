@@ -49,6 +49,11 @@
           "type": "boolean",
           "default": true,
           "description": "Whether to display a non-intrusive status bar notification when the workbench reset completes."
+        },
+        "vscodeWorkbenchReset.closeAllEditors": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to close all open editor tabs when resetting the workbench layout."
         }
       }
     }
