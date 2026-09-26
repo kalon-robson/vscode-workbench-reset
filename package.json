@@ -2,7 +2,7 @@
   "name": "workbench-reset",
   "displayName": "Workbench Reset",
   "description": "Instantly reset your workbench layout back to a clean and focused state with a single shortcut.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "kalon-robson",
   "repository": {
     "type": "git",
