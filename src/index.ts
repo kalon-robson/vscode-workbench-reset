@@ -26,8 +26,6 @@ async function resetLayout(out: vscode.OutputChannel): Promise<void> {
 	await runCommand('workbench.action.closePanel', out);
 	await runCommand('workbench.action.closeAuxiliaryBar', out);
 	await runCommand('workbench.view.explorer', out);
-	await runCommand('workbench.files.action.collapseExplorerFolders', out);
-	await runCommand('workbench.files.action.collapseExplorerFolders', out);
 	await runCommand('workbench.action.resetViewSizes', out);
 
 	await runCommand('workbench.action.focusFirstEditorGroup', out);
@@ -40,6 +38,8 @@ async function resetLayout(out: vscode.OutputChannel): Promise<void> {
 	}
 
 	await runCommand('workbench.files.action.focusFilesExplorer', out);
+	await runCommand('workbench.files.action.collapseExplorerFolders', out);
+	await runCommand('workbench.files.action.collapseExplorerFolders', out);
 
 	if (notify) {
 		vscode.window.setStatusBarMessage('$(check) Workbench layout reset', 3000);
